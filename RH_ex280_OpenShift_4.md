@@ -54,49 +54,49 @@ oc adm taint nodes <node fqdn> <taint name>
 oc adm taint nodes <node fqdn> <taint name>-
 
 ## Command list
-oc --help
-oc adm --help
-oc adm policy --help
-oc adm options
+oc --help   
+oc adm --help  
+oc adm policy --help  
+oc adm options  
 	
-oc login
-oc whoami
+oc login  
+oc whoami  
 	
-oc new-project my-new-project-name
-oc new-app https://github.com/...
-oc get pods -o wide -n my-namespace
-oc logs my-deployments
-oc get projects
-oc projects
-oc project my-existing-project
-oc delete project my-existing-project
-oc get -o yaml <resource>
-oc get -o json <resource>
-oc create -f resource.yaml
-oc create -f resource.json
-oc apply -f resource.yaml
-oc replace -f resource.yaml
-oc get secret -n openshift-config
-oc extract secret/secretname
-oc create secret generic MYSecretName --from-file=/tmp/filename --dry-run -o yaml -n MyNameSpace | oc replace -f
-oc rsync ...
-oc rsh ...
-
-oc status
-oc get co
-oc get <operator name>
-oc describe <operator name>
-	
-oc api-resources
-oc get endpoints
-oc get services
-oc get route
-oc expose service <service_name> [--port=1234] [--protocol=<PROTOCOL>]
-oc create route edge --service=<service_name> --cert=public.pem --key=private.pem --hostname=my.hostname.domain.tld
-
-oc get quota -n <project-name>
-oc create quota <quota-name> --hard=count/<resource>.<group>=<quota>,count/<resource>.<group>=<quota>
-oc describe quota -n <project-name>
+oc new-project my-new-project-name  
+oc new-app https://github.com/...  
+oc get pods -o wide -n my-namespace  
+oc logs my-deployments  
+oc get projects  
+oc projects  
+oc project my-existing-project  
+oc delete project my-existing-project  
+oc get -o yaml <resource>  
+oc get -o json <resource>  
+oc create -f resource.yaml  
+oc create -f resource.json  
+oc apply -f resource.yaml  
+oc replace -f resource.yaml  
+oc get secret -n openshift-config  
+oc extract secret/secretname  
+oc create secret generic MYSecretName --from-file=/tmp/filename --dry-run -o yaml -n MyNameSpace | oc replace -f  
+oc rsync ...  
+oc rsh ...  
+  
+oc status  
+oc get co  
+oc get <operator name>  
+oc describe <operator name>  
+	  
+oc api-resources  
+oc get endpoints  
+oc get services  
+oc get route  
+oc expose service <service_name> [--port=1234] [--protocol=<PROTOCOL>]  
+oc create route edge --service=<service_name> --cert=public.pem --key=private.pem --hostname=my.hostname.domain.tld  
+  
+oc get quota -n <project-name>  
+oc create quota <quota-name> --hard=count/<resource>.<group>=<quota>,count/<resource>.<group>=<quota>  
+oc describe quota -n <project-name>  
 
 oc get users
 oc delete user/<username> # also delete it from IDP (see below)
