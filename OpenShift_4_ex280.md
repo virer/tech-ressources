@@ -1,28 +1,27 @@
 
-# ***
-# Here below some commands that are not exam related, but good ressources :
-# ***
 
-# Get service account token inside container
+# Here below some commands that are not exam related, but good ressources :
+
+## Get service account token inside container
 TOKEN=$( cat /run/secrets/kubernetes.io/serviceaccount/token ) 
 
-# ***
+---
 
-# Confirm the service is up:
+## Confirm the service is up:
 oc get svc image-registry -n openshift-image-registry
-# Create a ServiceAccount:
+## Create a ServiceAccount:
 oc create sa pipeline
-# Add image-builder role to the ServiceAccount:
+## Add image-builder role to the ServiceAccount:
 oc adm policy add-role-to-user system:image-builder -z pipeline
-# Add privileged Security Context Constraint (SCC) so you can run container inside container:
+## Add privileged Security Context Constraint (SCC) so you can run container inside container:
 oc adm policy add-scc-to-user privileged -z pipeline
-# Set the ServiceAccount token:
+## Set the ServiceAccount token:
 TOKEN=$(oc get secret $(oc get secret | grep pipeline-token | head -1 | awk '{print $1}') -o jsonpath="{.data.token}" | base64 -d -w0)
 oc create secret generic pipeline-sa-token --from-literal='token'=${TOKEN}
-# Source : 
+## Source : 
 #  https://gist.github.com/luckylittle -> registry_access.sh
 
-# ***
+---
 
 # How can I list all resources and custom resources in OpenShift
 ## List all CRDs with CR name and Scope
