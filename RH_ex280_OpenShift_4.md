@@ -97,41 +97,41 @@ oc create route edge --service=<service_name> --cert=public.pem --key=private.pe
 oc get quota -n <project-name>  
 oc create quota <quota-name> --hard=count/<resource>.<group>=<quota>,count/<resource>.<group>=<quota>  
 oc describe quota -n <project-name>  
-
-oc get users
-oc delete user/<username> # also delete it from IDP (see below)
-oc get identify
-oc delete "identity/IDP_NAME:<username>"
-oc adm groups new <groupname>
-oc adm groups add-users <groupname> <username1> [<username2>]
-oc adm groups remove-users <groupname> <username1> [<username2>]
-oc adm policy add-role-to-user <role-name> <username> -n <project-name>
-oc adm policy add-role-to-user system:image-puller system:serviceaccount:ProjectName-1:serviceAccountName: -n MyOtherProjectName
-oc adm policy add-role-to-group <role-name> <groupname> -n <project-name>
-oc adm policy add-cluster-role-to-user cluster-admin <username> 
-oc get sa
-oc create sa MyServiceAccountName
-oc describe sa/MyServiceAccountName
-oc create role <role-name> --verb=<(get,list,patch,...)> --resource=<resource> -n <project-name>
-oc create clusterrole <role-name> --verb=<(get,list,patch,...)> --resource=<resource> 
-oc delete secrets kubeadmi -n kube-system # This remove the kubeadmin access
+  
+oc get users  
+oc delete user/<username> # also delete it from IDP (see below)   
+oc get identify  
+oc delete "identity/IDP_NAME:<username>"  
+oc adm groups new <groupname>  
+oc adm groups add-users <groupname> <username1> [<username2>]  
+oc adm groups remove-users <groupname> <username1> [<username2>]  
+oc adm policy add-role-to-user <role-name> <username> -n <project-name>  
+oc adm policy add-role-to-user system:image-puller system:serviceaccount:ProjectName-1:serviceAccountName: -n MyOtherProjectName  
+oc adm policy add-role-to-group <role-name> <groupname> -n <project-name>  
+oc adm policy add-cluster-role-to-user cluster-admin <username>   
+oc get sa  
+oc create sa MyServiceAccountName  
+oc describe sa/MyServiceAccountName  
+oc create role <role-name> --verb=<(get,list,patch,...)> --resource=<resource> -n <project-name>  
+oc create clusterrole <role-name> --verb=<(get,list,patch,...)> --resource=<resource>   
+oc delete secrets kubeadmi -n kube-system # This remove the kubeadmin access  
+	  
+oc logs --version=1 dc/deploymentconfig-name  
+oc logs -f pod/mypod -c <container_name> # for multi containers pod  
+  
+oc scale --replicas=18 dc/deploymentConfigName  
+oc autoscale dc/deploymentConfigName --min 2 --max 8 --cpu-percent=70  
 	
-oc logs --version=1 dc/deploymentconfig-name
-oc logs -f pod/mypod -c <container_name> # for multi containers pod
-
-oc scale --replicas=18 dc/deploymentConfigName
-oc autoscale dc/deploymentConfigName --min 2 --max 8 --cpu-percent=70
+oc get machinesets -n openshift-machine-api  
+oc scale --replicas=2 machineset <MyMachineSet> -n openshift-machine-api  
+oc edit machineset <MyMachineSet> -n openshift-machine-api  
+oc edit MachineAutoscaler -n openshift-machine-api  
 	
-oc get machinesets -n openshift-machine-api
-oc scale --replicas=2 machineset <MyMachineSet> -n openshift-machine-api
-oc edit machineset <MyMachineSet> -n openshift-machine-api
-oc edit MachineAutoscaler -n openshift-machine-api
-	
-	
+	  
 ## Other tips
-htpasswd command is part of httpd-tools package
-man req
-openssl req -x509 -newkey rsa:4096 -subj '/C=BE/O=GOV/OU=Wallonia/CN=example/' -nodes -keyout key.pem -out cert.pem
+htpasswd command is part of httpd-tools package  
+man req  
+openssl req -x509 -newkey rsa:4096 -subj '/C=BE/O=GOV/OU=Wallonia/CN=example/' -nodes -keyout key.pem -out cert.pem  
  
   
 ---
