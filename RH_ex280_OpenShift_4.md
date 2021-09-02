@@ -48,12 +48,13 @@ https://access.redhat.com/documentation/en-us/openshift_container_platform/4.5/
 	            key: password
 
 ## Add taints
-oc adm taint nodes <node fqdn> <taint name>
+`oc adm taint nodes <node fqdn> <taint name>`
   
 ## Remove taints
-oc adm taint nodes <node fqdn> <taint name>-
+`oc adm taint nodes <node fqdn> <taint name>-`
 
 ## Command list
+`
 oc --help   
 oc adm --help  
 oc adm policy --help  
@@ -126,7 +127,7 @@ oc get machinesets -n openshift-machine-api
 oc scale --replicas=2 machineset <MyMachineSet> -n openshift-machine-api  
 oc edit machineset <MyMachineSet> -n openshift-machine-api  
 oc edit MachineAutoscaler -n openshift-machine-api  
-	
+`
 	  
 ## Other tips
 htpasswd command is part of httpd-tools package  
