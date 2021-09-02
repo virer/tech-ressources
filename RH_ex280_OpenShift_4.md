@@ -54,84 +54,84 @@ https://access.redhat.com/documentation/en-us/openshift_container_platform/4.5/
 `oc adm taint nodes <node fqdn> <taint name>-`
 
 ## Command list
-`oc --help   `
-`oc adm --help  `
-`oc adm policy --help  `
-`oc adm options  `
+`oc --help`  
+`oc adm --help` 
+`oc adm policy --help`  
+`oc adm options`  
 	
-`oc login  `
-`oc whoami  `
+`oc login`  
+`oc whoami`  
 	
-oc new-project my-new-project-name  
-oc new-app https://github.com/...  
-oc get pods -o wide -n my-namespace  
-oc logs my-deployments  
-oc get projects  
-oc projects  
-oc project my-existing-project  
-oc delete project my-existing-project  
-oc get -o yaml <resource>  
-oc get -o json <resource>  
-oc create -f resource.yaml  
-oc create -f resource.json  
-oc apply -f resource.yaml  
-oc replace -f resource.yaml  
-oc get secret -n openshift-config  
-oc extract secret/secretname  
-oc create secret generic MYSecretName --from-file=/tmp/filename --dry-run -o yaml -n MyNameSpace | oc replace -f  
-oc rsync ...  
-oc rsh ...  
+`oc new-project my-new-project-name`  
+`oc new-app https://github.com/...`  
+`oc get pods -o wide -n my-namespace`  
+`oc logs my-deployments`  
+`oc get projects`  
+`oc projects`  
+`oc project my-existing-project`  
+`oc delete project my-existing-project`  
+`oc get -o yaml <resource>`  
+`oc get -o json <resource>`  
+`oc create -f resource.yaml`  
+`oc create -f resource.json`  
+`oc apply -f resource.yaml`  
+`oc replace -f resource.yaml`  
+`oc get secret -n openshift-config`  
+`oc extract secret/secretname`  
+`oc create secret generic MYSecretName --from-file=/tmp/filename --dry-run -o yaml -n MyNameSpace | oc replace -f`  
+`oc rsync ...`  
+`oc rsh ...`  
   
-oc status  
-oc get co  
-oc get <operator name>  
-oc describe <operator name>  
+`oc status`  
+`oc get co`  
+`oc get <operator name>`  
+`oc describe <operator name>`  
 	  
-oc api-resources  
-oc get endpoints  
-oc get services  
-oc get route  
-oc expose service <service_name> [--port=1234] [--protocol=<PROTOCOL>]  
-oc create route edge --service=<service_name> --cert=public.pem --key=private.pem --hostname=my.hostname.domain.tld  
+`oc api-resources`  
+`oc get endpoints`  
+`oc get services`  
+`oc get route`  
+`oc expose service <service_name> [--port=1234] [--protocol=<PROTOCOL>]`  
+`oc create route edge --service=<service_name> --cert=public.pem --key=private.pem --hostname=my.hostname.domain.tld`  
   
-oc get quota -n <project-name>  
-oc create quota <quota-name> --hard=count/<resource>.<group>=<quota>,count/<resource>.<group>=<quota>  
-oc describe quota -n <project-name>  
+`oc get quota -n <project-name>`  
+`oc create quota <quota-name> --hard=count/<resource>.<group>=<quota>,count/<resource>.<group>=<quota>`  
+`oc describe quota -n <project-name>`  
   
-oc get users  
-oc delete user/<username> # also delete it from IDP (see below)   
-oc get identify  
-oc delete "identity/IDP_NAME:<username>"  
-oc adm groups new <groupname>  
-oc adm groups add-users <groupname> <username1> [<username2>]  
-oc adm groups remove-users <groupname> <username1> [<username2>]  
-oc adm policy add-role-to-user <role-name> <username> -n <project-name>  
-oc adm policy add-role-to-user system:image-puller system:serviceaccount:ProjectName-1:serviceAccountName: -n MyOtherProjectName  
-oc adm policy add-role-to-group <role-name> <groupname> -n <project-name>  
-oc adm policy add-cluster-role-to-user cluster-admin <username>   
-oc get sa  
-oc create sa MyServiceAccountName  
-oc describe sa/MyServiceAccountName  
-oc create role <role-name> --verb=<(get,list,patch,...)> --resource=<resource> -n <project-name>  
-oc create clusterrole <role-name> --verb=<(get,list,patch,...)> --resource=<resource>   
-oc delete secrets kubeadmi -n kube-system # This remove the kubeadmin access  
+`oc get users`  
+`oc delete user/<username> # also delete it from IDP (see below)`    
+`oc get identify`  
+`oc delete "identity/IDP_NAME:<username>"`  
+`oc adm groups new <groupname>`  
+`oc adm groups add-users <groupname> <username1> [<username2>]`  
+`oc adm groups remove-users <groupname> <username1> [<username2>]`  
+`oc adm policy add-role-to-user <role-name> <username> -n <project-name>`  
+`oc adm policy add-role-to-user system:image-puller system:serviceaccount:ProjectName-1:serviceAccountName: -n MyOtherProjectName`  
+`oc adm policy add-role-to-group <role-name> <groupname> -n <project-name>`  
+`oc adm policy add-cluster-role-to-user cluster-admin <username>`   
+`oc get sa`  
+`oc create sa MyServiceAccountName`  
+`oc describe sa/MyServiceAccountName`  
+`oc create role <role-name> --verb=<(get,list,patch,...)> --resource=<resource> -n <project-name>`  
+`oc create clusterrole <role-name> --verb=<(get,list,patch,...)> --resource=<resource>`   
+`oc delete secrets kubeadmi -n kube-system # This remove the kubeadmin access`  
 	  
-oc logs --version=1 dc/deploymentconfig-name  
-oc logs -f pod/mypod -c <container_name> # for multi containers pod  
+`oc logs --version=1 dc/deploymentconfig-name`  
+`oc logs -f pod/mypod -c <container_name> # for multi containers pod`  
   
-oc scale --replicas=18 dc/deploymentConfigName  
-oc autoscale dc/deploymentConfigName --min 2 --max 8 --cpu-percent=70  
+`oc scale --replicas=18 dc/deploymentConfigName`  
+`oc autoscale dc/deploymentConfigName --min 2 --max 8 --cpu-percent=70`  
 	
-oc get machinesets -n openshift-machine-api  
-oc scale --replicas=2 machineset <MyMachineSet> -n openshift-machine-api  
-oc edit machineset <MyMachineSet> -n openshift-machine-api  
-oc edit MachineAutoscaler -n openshift-machine-api  
-`
+`oc get machinesets -n openshift-machine-api`  
+`oc scale --replicas=2 machineset <MyMachineSet> -n openshift-machine-api`  
+`oc edit machineset <MyMachineSet> -n openshift-machine-api`  
+`oc edit MachineAutoscaler -n openshift-machine-api`  
+
 	  
 ## Other tips
-htpasswd command is part of httpd-tools package  
-man req  
-openssl req -x509 -newkey rsa:4096 -subj '/C=BE/O=GOV/OU=Wallonia/CN=example/' -nodes -keyout key.pem -out cert.pem  
+`htpasswd command is part of httpd-tools package`  
+`man req`  
+`openssl req -x509 -newkey rsa:4096 -subj '/C=BE/O=GOV/OU=Wallonia/CN=example/' -nodes -keyout key.pem -out cert.pem`  
  
   
 ---
@@ -139,27 +139,27 @@ openssl req -x509 -newkey rsa:4096 -subj '/C=BE/O=GOV/OU=Wallonia/CN=example/' -
 # Below commands not exam related, but good ressources :
 
 ## Change deployments strategy
-oc patch deployments/mydeployment --patch '{"spec":{"strategy":{"type":"RollingUpdate"}}}'
+`oc patch deployments/mydeployment --patch '{"spec":{"strategy":{"type":"RollingUpdate"}}}'` 
 
 ## Restart deployments
-oc rollout restart deployments/mydeployment
+` oc rollout restart deployments/mydeployment` 
 
 ## Get service account token inside container
-TOKEN=$( cat /run/secrets/kubernetes.io/serviceaccount/token ) 
+`TOKEN=$( cat /run/secrets/kubernetes.io/serviceaccount/token )`  
 
 ---
 
 ## Confirm the service is up:
-oc get svc image-registry -n openshift-image-registry
+`oc get svc image-registry -n openshift-image-registry`  
 ## Create a ServiceAccount:
-oc create sa pipeline
+`oc create sa pipeline`  
 ## Add image-builder role to the ServiceAccount:
-oc adm policy add-role-to-user system:image-builder -z pipeline
+`oc adm policy add-role-to-user system:image-builder -z pipeline`  
 ## Add privileged Security Context Constraint (SCC) so you can run container inside container:
-oc adm policy add-scc-to-user privileged -z pipeline
+`oc adm policy add-scc-to-user privileged -z pipeline`  
 ## Set the ServiceAccount token:
-TOKEN=$(oc get secret $(oc get secret | grep pipeline-token | head -1 | awk '{print $1}') -o jsonpath="{.data.token}" | base64 -d -w0)
-oc create secret generic pipeline-sa-token --from-literal='token'=${TOKEN}
+`TOKEN=$(oc get secret $(oc get secret | grep pipeline-token | head -1 | awk '{print $1}') -o jsonpath="{.data.token}" | base64 -d -w0)`  
+`oc create secret generic pipeline-sa-token --from-literal='token'=${TOKEN}`  
 
 _Source : https://gist.github.com/luckylittle -> registry_access.sh
 
