@@ -54,14 +54,13 @@ https://access.redhat.com/documentation/en-us/openshift_container_platform/4.5/
 `oc adm taint nodes <node fqdn> <taint name>-`
 
 ## Command list
-`
-oc --help   
-oc adm --help  
-oc adm policy --help  
-oc adm options  
+`oc --help   `
+`oc adm --help  `
+`oc adm policy --help  `
+`oc adm options  `
 	
-oc login  
-oc whoami  
+`oc login  `
+`oc whoami  `
 	
 oc new-project my-new-project-name  
 oc new-app https://github.com/...  
