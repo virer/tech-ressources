@@ -1,2 +1,2 @@
 # tech-ressources
-Technical Ressources and Documentatiosn
+Technical Ressources and Documentations
