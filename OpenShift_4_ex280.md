@@ -18,8 +18,8 @@ oc adm policy add-scc-to-user privileged -z pipeline
 ## Set the ServiceAccount token:
 TOKEN=$(oc get secret $(oc get secret | grep pipeline-token | head -1 | awk '{print $1}') -o jsonpath="{.data.token}" | base64 -d -w0)
 oc create secret generic pipeline-sa-token --from-literal='token'=${TOKEN}
-## Source : 
-#  https://gist.github.com/luckylittle -> registry_access.sh
+
+_Source : https://gist.github.com/luckylittle -> registry_access.sh
 
 ---
 
@@ -40,5 +40,4 @@ oc create secret generic pipeline-sa-token --from-literal='token'=${TOKEN}
 `oc get $(oc api-resources --namespaced=true --verbs=list -o name | awk '{printf "%s%s",sep,$0;sep=","}')  --ignore-not-found -n ${NAMESPACE} -o=custom-columns=KIND:.kind,NAME:.metadata.name --sort-by='kind'`
 
 _Note: `oc get all` inside namespace does not really show "all" and the above commands will fill those gaps._
-# Source : 
-#  https://gist.github.com/luckylittle -> ocp4_all_resources.md
+_Source: https://gist.github.com/luckylittle -> ocp4_all_resources.md
