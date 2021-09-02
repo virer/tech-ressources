@@ -55,7 +55,7 @@ https://access.redhat.com/documentation/en-us/openshift_container_platform/4.5/
 
 ## Command list
 `oc --help`  
-`oc adm --help` 
+`oc adm --help`  
 `oc adm policy --help`  
 `oc adm options`  
 	
