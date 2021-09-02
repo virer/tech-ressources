@@ -136,7 +136,7 @@ openssl req -x509 -newkey rsa:4096 -subj '/C=BE/O=GOV/OU=Wallonia/CN=example/' -
   
 ---
 
-# Here below some commands that are not exam related, but good ressources :
+# Below commands not exam related, but good ressources :
 
 ## Change deployments strategy
 oc patch deployments/mydeployment --patch '{"spec":{"strategy":{"type":"RollingUpdate"}}}'
