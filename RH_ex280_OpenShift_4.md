@@ -27,7 +27,7 @@ https://access.redhat.com/documentation/en-us/openshift_container_platform/4.5/
  	spec:
  	  containers:
  	  - name: mycontainer
-      image: redis
+            image: redis
 	    env:
 	      - name: SECRET_USERNAME
 	        valueFrom:
