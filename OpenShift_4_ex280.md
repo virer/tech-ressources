@@ -40,4 +40,5 @@ _Source : https://gist.github.com/luckylittle -> registry_access.sh
 `oc get $(oc api-resources --namespaced=true --verbs=list -o name | awk '{printf "%s%s",sep,$0;sep=","}')  --ignore-not-found -n ${NAMESPACE} -o=custom-columns=KIND:.kind,NAME:.metadata.name --sort-by='kind'`
 
 _Note: `oc get all` inside namespace does not really show "all" and the above commands will fill those gaps._
+
 _Source: https://gist.github.com/luckylittle -> ocp4_all_resources.md
