@@ -31,6 +31,9 @@ $ cat /sys/block/sda/queue/scheduler
   virsh schedinfo
   chrt / nice / top / ps
   lscpu / chcpu
+  lshw -C disk
+  man xfs
+  man ext4
 </pre>
 
 # dnf :
