@@ -1,7 +1,7 @@
 EX 442 Tips and things to know for the exam
 
 <pre>
-Get page size:
+Get memory page size:
 $ getconf PAGESIZE
 
 Get readahead and blocksize value:
