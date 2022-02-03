@@ -46,7 +46,12 @@ $ cat /sys/block/sda/queue/scheduler
 <pre>
    tuned-adm list
    
-   hugepage configuration (using tuned or something else like hugepagesz= at grubline)
+   hugepage configuration :
+      yum install -y libhugetlbfs libhugetlbfs-utils
+      mkdir /largefile && mount -t hugetlbfs none /largefile
+      grub way: 
+              hugepagesz=1G at grubline
+              optionnal : default_hugepagesz=1G
    
    [main]
    include=override_me
@@ -56,7 +61,7 @@ $ cat /sys/block/sda/queue/scheduler
    
    [sysctl]
    dirty page management
-   vm.nr_hugepages=
+   vm.nr_hugepages=512  (* pagesize = bytes)
    net.ipv4.tcp_window_scaling
    be able to calculate the buffer size based on desired bandwidth and latency:
     net.ipv4.tcp_rmem / net.ipv4.tcp_wmem 
