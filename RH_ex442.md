@@ -30,6 +30,7 @@ $ cat /sys/block/sda/queue/scheduler
   bcc-tools
   virsh schedinfo
   chrt / nice / top / ps
+  lscpu / chcpu
 </pre>
 
 # dnf :
