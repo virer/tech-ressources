@@ -46,13 +46,6 @@ $ cat /sys/block/sda/queue/scheduler
 <pre>
    tuned-adm list
    
-   hugepage configuration :
-      yum install -y libhugetlbfs libhugetlbfs-utils
-      mkdir /largefile && mount -t hugetlbfs none /largefile
-      grub way: 
-              hugepagesz=1G at grubline
-              optionnal : default_hugepagesz=1G
-   
    [main]
    include=override_me
    
@@ -93,6 +86,13 @@ $ cat /sys/block/sda/queue/scheduler
    [script]
    script=${i:PROFILE_DIR}/script.sh
 </pre>   
+
+# hugepage configuration :
+      yum install -y libhugetlbfs libhugetlbfs-utils
+      mkdir /largefile && mount -t hugetlbfs none /largefile
+      grub way: 
+              hugepagesz=1G at grubline
+              optionnal : default_hugepagesz=1G
 
 # Systemd:
 <pre>
