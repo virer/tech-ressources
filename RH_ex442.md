@@ -62,7 +62,8 @@ $ cat /sys/block/sda/queue/scheduler
    vm.dirty_ratio
    vm.dirty_background_ratio
    vm.swappiness
-   vm.overcommit_memory=1
+   vm.overcommit_memory=[0|1|2] :
+      Committed_AS section in /proc/meminfo is an estimation of how much memory the machine requires to avoid an OOM for the current workload.
    
    [disk]
    devices=sda,sdb
