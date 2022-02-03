@@ -94,6 +94,7 @@ $ cat /sys/block/sda/queue/scheduler
     MemoryAccounting=yes
     CPUAccounting=yes
     CPUQuota=200% # for 2 CPU max
+    CPUAffinity=0,2,4,6-12
 
   man systemd.resource-control
   systemd-cgls
