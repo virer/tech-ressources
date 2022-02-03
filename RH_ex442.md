@@ -1,5 +1,6 @@
 EX 442 Tips and things to know for the exam
 
+<pre>
 Get page size:
 $ getconf PAGESIZE
 
@@ -8,11 +9,13 @@ $ blockdev --report
 
 Get current I/O scheduler for a disk
 $ cat /sys/block/sda/queue/scheduler
+</pre>
 
 # FS
   be able to put filesystem journal on a separated drive/partition for xfs and ext4
 
 # Tools :
+<pre>
   pcp / pcp-chart / pmcd
   tuna
   numactl / numastats
@@ -22,12 +25,16 @@ $ cat /sys/block/sda/queue/scheduler
   perf
   bcc-tools
   virsh schedinfo
+</pre>
 
 # dnf :
-/etc/dnf/dnf.conf:
-  fastestmirror=1
+<pre>
+  /etc/dnf/dnf.conf:
+      fastestmirror=1
+ </pre>
   
 # tuned:
+<pre>
    tuned-adm list
    
    hugepage configuration (using tuned or something else like hugepagesz= at grubline)
@@ -64,9 +71,10 @@ $ cat /sys/block/sda/queue/scheduler
    
    [script]
    script=${i:PROFILE_DIR}/script.sh
-   
+</pre>   
 
 # systemd:
+<pre>
   be able to create a "cron" task using "OnCalendar" and .timer unit files with systemd  
   systemd slice and user related limitation and configuration user-.slice etc...
     [Unit]
@@ -78,9 +86,11 @@ $ cat /sys/block/sda/queue/scheduler
   systemctl set-property servicename.service MemoryMax=1G
   systemctl show servicename.service
   systemctl daemon-reload
-
+</pre>
 
 # systemtap:
+<pre>
      stap
      stap-prep
      stap -p 4 -v -m ...
+</pre>
