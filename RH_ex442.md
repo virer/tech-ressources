@@ -17,15 +17,19 @@ $ cat /sys/block/sda/queue/scheduler
 # Tools :
 <pre>
   pcp / pcp-chart / pmcd
+  pmval / pmdumplog / pminfo / pmlogger
   tuna
   numactl / numastats :
     numactl --interleave all -- <your cmd>
-  pmval / pmdumplog
-  sar
+  sysstat: sar / iostat / vmstat / mpstat / pidstat
   valgrind and cachegrind module
   perf
+  dmidecode
+  sysctl (-a -w -p)
+  nice / ionice
   bcc-tools
   virsh schedinfo
+  chrt / nice / top / ps
 </pre>
 
 # dnf :
