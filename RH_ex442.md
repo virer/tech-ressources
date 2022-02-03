@@ -21,6 +21,7 @@ $ cat /sys/block/sda/queue/scheduler
   tuna
   numactl / numastats :
     numactl --interleave all -- <your cmd>
+    numastat -c vsftpd
   sysstat: sar / iostat / vmstat / mpstat / pidstat
   valgrind and cachegrind module
   perf
@@ -34,6 +35,7 @@ $ cat /sys/block/sda/queue/scheduler
   lshw -C disk
   man xfs
   man ext4
+  lscgroups
 </pre>
 
 # dnf :
@@ -99,8 +101,18 @@ $ cat /sys/block/sda/queue/scheduler
   be able to create a "cron" task using "OnCalendar" and .timer unit files with systemd  
   systemd slice and user related limitation and configuration user-.slice etc...
     [Unit]
+    Slice=system-servicename.slice
+    
+    [Service]
+    MemoryLimit=384M
+    
+    /etc/systemd/system/system-myservicename.slice :
+    [Unit]
+    Description=My Slice
+    
     [Slice]
     MemoryMax=1G
+    MemorySwapMax=0
     MemoryAccounting=yes
     CPUAccounting=yes
     CPUQuota=200% # for 2 CPU max
