@@ -344,8 +344,11 @@ First you need to extract admin certificate from "elasticsearch" secret inside o
 $ oc -n openshift-logging extract secret/elasticsearch
 
 Then expose the elasticsearch service on a node port and get the node port number:
+
 $ oc expose service elasticsearch  --type=NodePort --name=elasticsearch-nodeport --generator="service/v2"
+
 $ export NODEPORT=$( oc describe svc/elasticsearch-nodeport -n openshift-logging  | awk '/NodePort/ { print $3 }' | sed 's#/TCP##g' | tail -n 1 )
+
 
 Then you are able to authenticate on the API using :
 
