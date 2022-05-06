@@ -15,6 +15,7 @@ Source: https://github.com/openshift/elasticsearch-operator/edit/master/docs/ale
     - [Elasticsearch Process CPU is High](#Elasticsearch-Process-CPU-is-High)
     - [Elasticsearch Disk Space is Running Low](#Elasticsearch-Disk-Space-is-Running-Low)
     - [Elasticsearch FileDescriptor Usage is high](#Elasticsearch-FileDescriptor-Usage-is-high)
+    - [Remote access to ElasticSearch API on OpenShift 4](#Remote-access-to-ElasticSearch-API-on-OpenShift-4)
 
 <!-- /TOC -->
 
@@ -334,3 +335,14 @@ The projected number of file descriptors on the node is [insufficient](https://w
 ### Troubleshooting
 
 Check the *max_file_descriptors* configured for each node.
+
+
+## Remote access to ElasticSearch API on OpenShift 4
+
+First you need to extract admin certificate from "elasticsearch" secret inside openshift-logging namespace:
+
+$ oc -n openshift-logging extract secret/elasticsearch
+
+Then you are able to authenticate on the API using :
+
+$ curl -vk --key ./admin-key --cert ./admin-cert --cacert ./admin-ca -H "X-Forwarded-For: 127.0.0.1" https://worker-node:<NodePort>/_cat/indice
