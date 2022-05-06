@@ -343,6 +343,10 @@ First you need to extract admin certificate from "elasticsearch" secret inside o
 
 $ oc -n openshift-logging extract secret/elasticsearch
 
+Then expose the elasticsearch service on a node port and get the node port number:
+$ oc expose service elasticsearch  --type=NodePort --name=elasticsearch-nodeport --generator="service/v2"
+$ export NODEPORT=$( oc describe svc/elasticsearch-nodeport -n openshift-logging  | awk '/NodePort/ { print $3 }' | sed 's#/TCP##g' | tail -n 1 )
+
 Then you are able to authenticate on the API using :
 
-$ curl -vk --key ./admin-key --cert ./admin-cert --cacert ./admin-ca -H "X-Forwarded-For: 127.0.0.1" https://worker-node:<NodePort>/_cat/indice
+$ curl -vk --key ./admin-key --cert ./admin-cert --cacert ./admin-ca -H "X-Forwarded-For: 127.0.0.1" https://infra-or-worker-node-ip:$NODEPORT/_cat/indice
